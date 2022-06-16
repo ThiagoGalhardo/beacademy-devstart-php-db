@@ -6,6 +6,7 @@ USE db_escola;
 
 -- Criar tabela --
 CREATE TABLE tb_professor(
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   cpf CHAR(11) UNIQUE NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL
@@ -29,3 +30,5 @@ DROP TABLE tb_professor;
 -- Selecionar dados --
 SELECT * FROM tb_professor;
 
+ -- Exclur dados --
+ DELETE FROM tb_professor WHERE id='2';
