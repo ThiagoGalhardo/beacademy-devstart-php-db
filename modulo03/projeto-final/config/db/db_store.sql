@@ -26,3 +26,4 @@ CREATE TABLE tb_product(
   quantity INT(5) NOT NULL,
   created_at DATETIME NOT NULL
 );
+
