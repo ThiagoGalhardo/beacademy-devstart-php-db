@@ -18,8 +18,8 @@ $routes = [
 '/' => createRoute(IndexController::class, 'indexAction'),
 '/produtos' => createRoute(ProductController::class, 'listAction'),
 '/produtos/novo' => createRoute(ProductController::class, 'addAction'),
-'/produtos/editar' => createRoute(ProductController::class, 'editAction'),
 '/produtos/excluir' => createRoute(ProductController::class, 'removeAction'),
+'/produtos/editar' => createRoute(ProductController::class, 'editAction'),
 
 
 '/categorias' =>createRoute(CategoryController::class, 'listAction'),

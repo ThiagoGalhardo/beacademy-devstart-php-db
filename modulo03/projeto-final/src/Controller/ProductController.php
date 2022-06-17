@@ -55,18 +55,56 @@ class ProductController extends AbstractController
   {
       $id = $_GET['id'];
 
-      $con = Connection::getConnection();
+      $connection = Connection::getConnection();
 
-      $result = $con->prepare("DELETE FROM tb_product WHERE id='{$id}'");
+      $result = $connection->prepare("DELETE FROM tb_product WHERE id='{$id}'");
       $result->execute();
 
-      $message = 'Produto excluído com sucesso!';
-      include dirname(__DIR__).'/View/_partials/message.php';
+      parent::renderMessage('Produto excluído com sucesso!');
 
   }
 
   public function editAction(): void
   {
-    parent::render('product/edit');
+      $id = $_GET['id'];
+
+      $connection = Connection::getConnection();
+
+      $categories = $connection->prepare('SELECT * FROM tb_category');
+      $categories->execute();
+
+      if ($_POST){
+
+          $name = $_POST['name'];
+          $description = $_POST['description'];
+          $price = $_POST['price'];
+          $quantity = $_POST['quantity'];
+          $photo = $_POST['photo'];
+
+          $query = "
+                  UPDATE tb_product SET
+                      name = '{$name}',
+                      description = '{$description}',
+                      price = '{$price}',
+                      quantity = '{$quantity}',
+                      photo = '{$photo}'
+                  WHERE id='{$id}'
+                  ";
+          $resultUpdate = $connection->prepare($query);
+          $resultUpdate->execute();
+
+          parent::renderMessage('Produto atualizado com sucesso!');
+
+      }
+
+      $product = $connection->prepare("SELECT * FROM tb_product WHERE id='{$id}'");
+      $product->execute();
+
+      parent::render('product/edit', [
+          'product' => $product->fetch(\PDO::FETCH_ASSOC),
+      ]);
+
+
+      
   }
 }
