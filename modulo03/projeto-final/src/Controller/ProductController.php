@@ -22,7 +22,34 @@ class ProductController extends AbstractController
 
   public function addAction(): void
   {
-    parent::render('product/add');
+    $connection = Connection::getConnection();
+
+    if ($_POST){
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $quantity = $_POST['quantity'];
+        $photo = $_POST['photo'];
+        $createdAt = date('Y-m-d H:i:s');
+        $category_id = $_POST['category'];
+
+        $query = "INSERT INTO tb_product 
+        (name, description, price, photo, quantity, category_id, created_at) 
+        VALUES 
+        ('{$name}', '{$description}', '{$price}', '{$photo}', '{$quantity}', '{$category_id}', '{$createdAt}')";
+
+        $result = $connection->prepare($query);
+        $result->execute();
+
+        echo 'Produto cadastrado com sucesso!';
+    };
+
+    
+    
+    $result = $connection->prepare('SELECT * FROM tb_category');
+    $result->execute();
+
+    parent::render('product/add', $result);
   }
 
   public function editAction(): void

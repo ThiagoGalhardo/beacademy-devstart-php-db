@@ -2,7 +2,6 @@
 
 <div class="mb-3 text-end">
   <a href="/produtos/novo" class="btn btn-outline-primary">Novo Produto</a>
-  <a href="/produtos/relatorio" class="btn btn-outline-dark">Gerar Relatório</a>
 </div>
 
 
@@ -33,9 +32,9 @@
                     <td>{$quantity}</td>
                     <td>{$created_at}</td>
                     <td>
-                        <a href='/produtos/excluir?id={$id}' class=' btn btn-outline-danger btn-sm'>Excluir</a>
                         <a href='/produtos/editar?id={$id}' class=' btn btn-outline-warning btn-sm'>Editar</a>
-                    </td>
+                        <a href='/produtos/excluir?id={$id}' class=' btn btn-outline-danger btn-sm'>Excluir</a>
+                   </td>
                 </tr>
             ";
             }
