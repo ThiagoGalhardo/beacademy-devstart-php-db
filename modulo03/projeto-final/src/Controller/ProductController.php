@@ -4,12 +4,20 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Connection\Connection;
+
 class ProductController extends AbstractController
 {
 
   public function listAction(): void
   {
-    parent::render('product/list');
+      $connection = Connection::getConnection();
+
+      $result = $connection->prepare('SELECT * FROM tb_product');
+      $result->execute();
+
+      parent::render('product/list', $result);
+
   }
 
   public function addAction(): void

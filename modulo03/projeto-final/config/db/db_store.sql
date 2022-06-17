@@ -27,3 +27,8 @@ CREATE TABLE tb_product(
   created_at DATETIME NOT NULL
 );
 
+
+INSERT INTO tb_product (name, description, photo, price, category_id, quantity, created_at)
+VALUES
+('Calça', 'Calça jeans masculina', 'http://lorempixel.com.br/500/400/?1', 189.90, 1, 988, '2022-06-16 21:20:45'),
+('Teclado', 'Teclado mecânico', 'http://lorempixel.com.br/500/400/?2', 249.90, 1, 200, '2022-06-17 17:14:45');
