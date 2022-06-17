@@ -42,14 +42,27 @@ class ProductController extends AbstractController
         $result->execute();
 
         echo 'Produto cadastrado com sucesso!';
-    };
-
-    
+    };    
     
     $result = $connection->prepare('SELECT * FROM tb_category');
     $result->execute();
 
     parent::render('product/add', $result);
+  }
+
+
+  public function removeAction(): void
+  {
+      $id = $_GET['id'];
+
+      $con = Connection::getConnection();
+
+      $result = $con->prepare("DELETE FROM tb_product WHERE id='{$id}'");
+      $result->execute();
+
+      $message = 'Produto excluído com sucesso!';
+      include dirname(__DIR__).'/View/_partials/message.php';
+
   }
 
   public function editAction(): void
