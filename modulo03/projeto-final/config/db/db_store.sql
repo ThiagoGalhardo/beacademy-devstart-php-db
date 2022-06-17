@@ -14,7 +14,7 @@ INSERT INTO tb_category (name, description)
 VALUES
 ('Informática', 'Produtos para informática e acessórios para computador'),
 ('Escritório', 'Canetas, cadernos, folhas e etc.'),
-('Eletronicos', 'TVs, caixa de som, smartphone e etc.');
+('Eletrônicos', 'TVs, caixa de som, smartphone e etc.');
 
 CREATE TABLE tb_product(
   id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
