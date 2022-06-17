@@ -33,11 +33,26 @@ class CategoryController extends AbstractController
 
       echo 'Pronto, categoria inserida com sucesso';
 
-
-
     }
     parent::render('category/add');
   }
+
+  public function removeAction(): void
+  {
+      $connection = Connection::getConnection();
+
+      $id = $_GET['id'];
+
+      $query = "DELETE FROM tb_category WHERE id='{$id}'";
+
+      $result = $connection->prepare($query);
+      $result->execute();
+
+      echo 'Categoria excluída com sucesso!';
+
+  }
+
+
 
   public function editAction(): void
   {
