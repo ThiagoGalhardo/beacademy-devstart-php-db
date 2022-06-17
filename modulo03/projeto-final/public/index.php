@@ -4,13 +4,10 @@ ini_set('display_errors', 1);
 
 include '../vendor/autoload.php';
 
-$database = 'db_store';
-$username = 'thiago';
-$password = 'livre';
+use App\Connection\Connection;
 
-$connection = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+$connection = Connection::getConnection();
 
-var_dump($connection);
 
 $query = 'SELECT * FROM tb_category;';
 
