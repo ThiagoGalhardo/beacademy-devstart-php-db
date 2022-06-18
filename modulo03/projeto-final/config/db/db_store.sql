@@ -30,5 +30,5 @@ CREATE TABLE tb_product(
 
 INSERT INTO tb_product (name, description, photo, price, category_id, quantity, created_at)
 VALUES
-('Calça', 'Calça jeans masculina', 'http://lorempixel.com.br/500/400/?1', 189.90, 1, 988, '2022-06-16 21:20:45'),
-('Teclado', 'Teclado mecânico', 'http://lorempixel.com.br/500/400/?2', 249.90, 1, 200, '2022-06-17 17:14:45');
+('Calça', 'Calça jeans feminina', 'https://images.tcdn.com.br/img/img_prod/891360/calca_jeans_wide_leg_talita_jeans_claro_757_1_558d4b0f9cad2fd2fd453321fde75c30.jpg', 189.90, 1, 21, '2022-06-16 21:20:45'),
+('Camisa', 'Camisa social', 'https://cf.shopee.com.br/file/71aa67ec03899e5d57ec2f9e23dfe344', 249.90, 2, 13, '2022-06-17 17:14:45');
